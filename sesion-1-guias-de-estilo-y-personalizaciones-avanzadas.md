@@ -6,15 +6,13 @@ En esta sesión hablaremos de los patrones de diseño que Apple nos recomienda s
 
 ### Guías de estilo en iOS
 
-Tanto el iPhone como el iPad supusieron un revolucionario giro en cuanto a diseño de interfaz se refiere. Para evitar el caos a la hora de diseñar cualquier tipo de aplicación, tras cada actualización de iOS _Apple_ plantea una serie de guías de estilo que todo desarrollador debe seguir en la medida de lo posible para diseñar una aplicación. Estas guias de estilo no son válidas, como es lógico, a la hora de diseñar la interfaz de un juego, sólo son útiles en aplicaciones.
+Tanto el iPhone como el iPad supusieron un revolucionario giro en cuanto a diseño de interfaz se refiere. Para evitar el caos a la hora de diseñar cualquier tipo de aplicación, tras cada actualización de iOS _Apple_ plantea una serie de guías de estilo que todo desarrollador debe seguir en la medida de lo posible para diseñar una aplicación. Normalmente estas guias de estilo no son válidas, como es lógico, a la hora de diseñar la interfaz de un juego, pero son muy útiles en aplicaciones.
 
 En esta sesión vamos a aprender a diseñar aplicaciones de iPhone / iPad que sean usables, accesibles y en las que el usuario perciba una grata experiencia al hacer uso de ellas. Hay que tener en cuenta que un usuario de iPhone está habituado a una serie de elementos y situaciones básicas como la navegación dentro de vistas mediante _Navigation Controllers_, navegación por las opciones fundamentales mediante los _Tab Bar Controllers_, uso de botones claros, etc. Aquí haremos un resumen de todo lo que Apple propone en sus [guias de estilo](https://developer.apple.com/ios/human-interface-guidelines/). A pesar de que nos centraremos en los aspectos principales de la guía, es recomendable leer por completo las guías de estilo tras cada actualización de iOS.
 
-Además de la guía de estilo oficial, conviene consultar detalladamente estos dos enlaces:
+Además de la guía de estilo oficial, conviene consultar detalladamente este enlace:
 
 [iOS Design do's and don'ts](https://developer.apple.com/design/tips/)
-
-[Designing for iOS](http://v1.designcode.io/iosdesign-guidelines) \(este enlace no es de Apple\).
 
 Veremos 3 puntos principales:
 
@@ -45,12 +43,16 @@ Se recomienda hacer todo el diseño previo usando Mockups, o bien hacerlo en el 
 
 La aplicación que diseñes debe estar totalmente adaptada a un dispositivo iOS, no a otro tipo ni a web. El usuario lo agradecerá \(y Apple también\). La inmensa mayoria de usuarios de iOS están acostumbrados al uso de botones, barras de navegación, _Tab Bars_, etc. Debemos, en la medida de lo posible, hacer uso de toda esta serie de componentes que son diseñados de forma específica para dispositivos iOS y con los que los usuarios están muy familiarizados.
 
-Se recomienda usar los componentes estándar de Apple, cuya referencia se puede encontrar en el [Catálogo de UIKit](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/UIKitUICatalog/index.html).
+Se recomienda usar los componentes estándar de Apple, cuya referencia se puede encontrar en el [Catálogo de UIKit](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/UIKitUICatalog/index.html). Los elementos del interfaz de _UIKit_ se dividen en tres categorías principales:
 
-Otro tema importante es que si la aplicación es universal, esta debe de funcionar correctamente tanto en iPhone como en iPad. Hay que asegurarse antes de publicarla en _App Store_ de que no hay bugs ya que si estos existen Apple puede rechazar la aplicación, o también puede ocurrir que el usuario la puntúe mal o deje de usarla. Existen una serie de puntos a tener en cuenta en este caso:
+* [Bars](https://developer.apple.com/design/human-interface-guidelines/ios/bars/navigation-bars/): Indican a los usuarios dónde están en la app, proporcionan navegación y pueden contener botones u otros elementos para realizar acciones y comunicar información.
+* [Views](https://developer.apple.com/design/human-interface-guidelines/ios/views/action-sheets/): Son el contenido principal que los usuarios ven, como texto, animaciones y elementos interactivos. Las vistas pueden incluir _scroll_, inserción, borrado y relocalización.
+* [Controls](https://developer.apple.com/design/human-interface-guidelines/ios/controls/buttons/): Inician acciones y transmiten información. Son los botones, _switches,_ campos de texto e indicadores de progreso, entre otros.
 
-* Hay que modelar cada aplicación según el dispositivo en el que se use teniendo en cuenta especialmente las capas de vistas, ya que estas cambian bastante.
-* Se debe de adaptar todo el arte \(imágenes, videos, etc.\) al dispositivo adecuado. El iPad y el iPhone 6 tendrán un arte con mayor resolución que un iPhone 4, por ejemplo. Los _Assets_ sirven para esto.
+Es importante  que si la aplicación es universal \(es decir, si est adisponible para iPhone y iPad\), debe de funcionar correctamente en todos los dispositivos. Hay que asegurarse antes de publicarla en _App Store_ de que no hay bugs ya que si estos existen Apple puede rechazar la aplicación, o también puede ocurrir que el usuario la puntúe mal o deje de usarla. Existen una serie de puntos a tener en cuenta en este caso:
+
+* Hay que diseñar cada aplicación según el dispositivo en el que se use teniendo en cuenta especialmente las capas de vistas, ya que estas cambian bastante.
+* Se debe de adaptar todo el arte \(imágenes, videos, etc.\) al dispositivo adecuado. El iPad y el iPhone 6 tendrán un arte con mayor resolución que un iPhone 4, por ejemplo. Los _Assets_ sirven para esto. En las últimas versiones de iOS, se recomienda usar ficheros PDF en los _Assets_, ya que se adaptarán a cualquier tamaño.
 * Las características de la aplicación deben conservarse a pesar del tipo de dispositivo que se use.
 * Evidentemente, se debe intentar diseñar la aplicación universal y no únicamente para iPhone o iPad.
 
@@ -58,21 +60,16 @@ Otro tema importante es que si la aplicación es universal, esta debe de funcion
 
 **La pantalla**
 
-Todo usuario que usa una aplicación interactúa mediante la pantalla. Es por ello que este es el componente más importante que podemos encontrar en cualquier dispositivo iOS. Existen distintas resoluciones de pantalla \(a nivel de desarrollo de código y a nivel físico\) según cada dispositivo. Un ejemplo de la resolución en puntos de cada dispositivo que debe tener en cuenta el desarrollador:
-
-* _iPhone 4S_ y modelos anteriores: 320 x 480 puntos
-* _iPhone 5/5S_: 320 x 568 puntos
-* _iPad_: 768 x 1024 puntos
-* _iPhone 6/6S_ : 375 x 667 puntos
-* _iPhone 6/6S plus_ : 414 x 736 puntos
-
-Se puede consultar la resolución de todos los modelos de Apple en [http://iores.com](http://iosres.com).
+  
+Todo usuario que usa una aplicación interactúa mediante la pantalla. Existen distintas resoluciones de pantalla \(a nivel de desarrollo de código y a nivel físico\) según cada dispositivo. Se puede consultar la resolución de todos los modelos de Apple en __[este enlace](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/adaptivity-and-layout/) y también en [este otro](http://iores.com).
 
 El tamaño en puntos no es el mismo que el tamaño en píxeles, que normalmente es un múltiplo \(2x, 3x\) de los puntos, como puede verse en el siguiente ejemplo:
 
 ![Resoluci&#xF3;n iphone](.gitbook/assets/design-resolutions.jpg)
 
 > Detección de contacto \(touch events\). El tamaño de la zona mínima para que el evento de contacto funcione correctamente debe de ser de al menos 44 x 44 puntos.
+
+Dada la diferencia de resolución entre los distintos dispositivos de Apple, se recomienda usar siempre [autolayout](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/adaptivity-and-layout/) en lugar de indicar explícitamente coordenadas de la pantalla para colocar los componentes.
 
 **Orientación del dispositivo**
 
@@ -88,101 +85,17 @@ Y para el iPad:
 
 **Diferentes storyboards**
 
-Tenemos que diseñar un [LaunchScreen.storyboard](https://developer.apple.com/ios/human-interface-guidelines/graphics/launch-screen/) para la pantalla de inicio \(que se muestra brevemente al arrancar la aplicación\), y otro para nuestra app \(Main.storyboard\).
+Debemos diseñar un Main.storyboard para nuestra app. Tenemos que diseñar un [LaunchScreen.storyboard](https://developer.apple.com/ios/human-interface-guidelines/graphics/launch-screen/) para la pantalla de inicio \(que se muestra brevemente al arrancar la aplicación\), y otro para nuestra app\).
 
-**Los multigestos**
+**Gestos**
 
-Un punto que hay que tener muy presente a la hora de diseñar y programar una aplicación en cualquier dispositivo iOS es el uso de los gestos. Llamamos gestos a los distintos movimientos que hace el usuario sobre la pantalla para realizar distintas acciones. Cuantos más gestos se implementen en una aplicación, más agradable e intutiva será de usar para el usuario final. En la sesión de _multitouch_ veremos en detalle cómo gestionar los gestos.
-
-**La multitarea**
-
-Mediante la multitarea nuestro dispositivo puede ejecutar más de dos aplicaciones al mismo tiempo. Otras tareas que no estén mostrándose en pantalla pueden estar almacenadas en memoria, es decir, en _background_, o también mostrándose simultáneamente en la pantalla. Apple recomienda que nuestra aplicación tenga en cuenta dicha característica ya que de esta forma el usuario puede estar realizando otras tareas al mismo tiempo sin necesidad de cerrarla.
-
-![Captura multitarea iOS](.gitbook/assets/multitasking2.png)
-
-La aplicación debe estar preparada para gestionar interrupciones de audio en cualquier momento, pararse y reiniciarse sin ninguna complicación ni lag y de forma "suave", y debe comportarse de forma adecuada cuando se encuentra en _background_. La multitarea es una tecnología que se utiliza muy a menudo en iOS y es por ello que debemos tenerla muy presente a la hora de programar nuestras aplicaciones. La gestión del paso de un estado _activo_ a _inactivo_ debe programarse cuando sea necesario. Por ejemplo, hay que tener en cuenta que nuestro juego puede interrumpirse por una llamada a mitad del lanzamiento de un pájaro.
-
-Para determinar el comportamiento de nuestra aplicación cuando entra en _background_ podemos cambiar los métodos `applicationDidEnterBackground` y `applicationWillEnterForeground`. Esta parte se explicará en otras asignaturas del máster.
-
-**Preferencias**
-
-Si la aplicación utiliza preferencias propias, podemos hacer una vista para ellas dentro de nuestra aplicación en el caso de que el usuario necesite cambiarlas con frecuencia, o bien añadir un _settings bundle_ si esto no es tan frecuente. Un _settings bundle_ contiene ficheros \(principalmente _.plist_\) que describen la estructura y estilo de presentación de las preferencias, y es muy sencillo de implementar. La app _Settings_ usa esta información para crear una entrada para nuestra aplicación y mostrar las preferencias.
-
-![Ejemplo de preferencias en Bundle Settings](.gitbook/assets/preferencias.png)
+Llamamos gestos a los distintos movimientos que hace el usuario sobre la pantalla para realizar acciones. Cuantos más gestos se implementen en una app, más agradable e intutiva será de usar. En la sesión de _multitouch_ veremos en detalle cómo gestionar los gestos.
 
 **Ayuda**
 
 La aplicación debe ser lo suficientemente intuitiva para que el usuario sepa usarla. **Lo ideal es que no sea necesario ningún texto de ayuda**, pero si existe debe ser lo más claro y compacto posible, y si se pueden utilizar imágenes o videos, mejor.
 
 Hay que tener en cuenta que el usuario no tendrá tiempo ni ganas de estar leyendo la ayuda antes de utilizar la aplicación, además de que el espacio que ocupa se puede emplear para otros contenidos que sean de mayor importancia. La ayuda no debería ser necesaria si se utilizan las guias de estilo establecidas por Apple y que tienen por finalidad, como hemos comentado anteriormente, establecer una interfaz simple e intuitiva de usar.
-
-#### Guías de uso de las principales tecnologías disponibles en iOS
-
-La API de iOS nos da acceso a múltiples tecnologías nativas que nos permiten realizar distintas tareas que posiblemente sean de utilidad a la hora de usar la aplicación que desarrollemos. A continuación se comentan las principales:
-
-**App extensions \(extensiones\)**
-
-Con las extensiones \(añadidas en iOS8\), los usuarios pueden usar un componente desarrollado por nosotros desde una app externa. Por ejemplo, mientras un usuario ve una web con Safari, podría usar nuestras extensiones para enviar una imagen o un artículo a nuestra red social. O podría también usar desde la aplicación de fotos de Apple una extensión nuestra para editar la imagen.
-
-Las extensiones pueden ser de tipo _widget_, para realizar acciones desde el notification center, _share_ para compartir contenido con terceros, _action_ para ver contenido desde otra aplicación, _photo editing_ para editar imágenes, o _custom keyboard_ para reemplazar el teclado de iOS por uno personalizado, entre otras posibilidades.
-
-![Widget](.gitbook/assets/widget_experience_2x.png) ![Action](.gitbook/assets/share_action_appex_2x.png)
-
-**Notificaciones**
-
-Las notificaciones push permiten a los usuarios estar avisados en cualquier momento, independientemente de si la aplicación está funcionando en ese mismo instante. Esto es muy útil en aplicaciones que hagan uso de un calendario, para avisar de eventos futuros, o aplicaciones con algún tipo de recordatorio. También se utiliza muy a menudo en juegos, sobre todo en juegos sociales.
-
-![Notificaci&#xF3;n push alert](.gitbook/assets/notif_ctr_alert.png) ![Notificaci&#xF3;n push banner](.gitbook/assets/notif_ctr_banner.png)
-
-La implementación de este servicio por parte del desarrollador es algo compleja y requiere de un servidor propio, aunque se pueden contratar servicios externos que realicen esa tarea de forma bastante económica. Al mismo tiempo que se activa la notificación _push_ se muestra un número en la esquina superior derecha del icono de la aplicación. A esto se le llama _badge_ y es muy sencillo de implementar en nuestras aplicaciones.
-
-![Ejemplo badge en app](.gitbook/assets/notif_ctr_badge.png)
-
-**Social media \(redes sociales\)**
-
-Podemos querer que nuestros usuarios accedan a redes sociales desde nuestra aplicación. Para ello, Apple tiene una serie de clases que facilitan el acceso a las mismas mediante una extensión como se ha visto anteriormente, que podemos configurar para esta tarea.
-
-**iCloud**
-
-Con iCloud disponemos de un espacio de almacenamiento en la nube accesible por nuestros usuarios independientemente del dispositivo en el que estén trabajando. Cuando integramos iCloud en nuestra aplicación, los usuarios pueden usar distintas instancias de las misma en distintos dispositivos para ver y editar contenidos sin tener que hacer una sincronización explícita.
-
-![iCloud](.gitbook/assets/icloud_intro_2x.png)
-
-**In-App purchase**
-
-Podemos hacer que los usuarios realicen compras desde nuestra aplicación. Esto es muy común en juegos, por ejemplo, donde se pueden comprar objetos con dinero real. También podemos usarlo para actualizar de una versión gratuita \(básica\) a una versión de pago \(premium\) o para renovar una subscripción, por ejemplo.
-
-![In-app purchase](.gitbook/assets/in-app_purchase_2x.png)
-
-**Passbook \(Wallet\)**
-
-Con Wallet podemos gestionar _passes_, que son representaciones de objetos físicos como tarjetas de embarque, cupones, o tickets. Podemos crear un _pass_, distribuirlo a los usuarios, y actualizarlo cuando creamos oportuno.
-
-![Passbook](.gitbook/assets/pass_example_2x.png)
-
-**Game center**
-
-Game Center permite a los usuarios participar en distintos juegos y organizar partidas multijugador online, por ejemplo. Los jugadores pueden usar la app _Game Center_ para entrar en su cuenta, descubrir nuevos juegos, añadir amigos, y ver los resultados conseguidos.
-
-**AirPrint \(imprimir\)**
-
-Mediante _Airprint_ se puede enviar a imprimir cualquier documento que deseemos desde nuestras aplicaciones. La API de iOS se encarga de gestionar la localización de impresoras y la ejecución de tareas de impresión, mientras que el desarrollador se encarga de especificar qué elemento/s desea imprimir \(normalmente PDF o imágenes\).
-
-**Servicios de localización**
-
-Los servicios de localización permiten a los usuarios acceder a una situación geográfica en cualquier momento y lugar. Si nuestra aplicación hace uso de los mapas, por ejemplo, estos intentarán a su vez hacer uso de los servicios de localización del dispositivo para poder situar de una forma bastante certera la posición actual del usuario en el mapa.
-
-Al intentar hacer uso de estos servicios, la aplicación lanzará una ventana emergente preguntando por los permisos de acceso. Los sistemas de localización se basan principalmente en la brújula, GPS y Wifi.
-
-**QuickLook \(Vista rápida de documentos\)**
-
-Mediante esta opción los usuarios pueden acceder a una vista previa de documentos descargados desde las aplicaciones. Dependiendo del dispositivo a utilizar, los documentos se presentarán dentro de una ventana modal, si trabajamos en un iPad, o dentro de una vista completa si es un iPhone.
-
-**Siri**
-
-Desde _iOS 10_, podemos desarrollar apps integradas con Siri para realizar ciertas tareas en respuesta a comandos hablados y a preguntas de los usuarios.
-
-Por ejemplo, podemos iniciar llamadas o buscar en el histórico de llamadas, enviar mensajes o leer mensajes recibidos, aceptar pagos, buscar o mostrar fotos, reservar viajes o proporcionar información sobre los mismos, e incluso con _CarPlay_ podemos cambiar la fuente de audio en el coche, la temperatura del asiento o la emisora de radio.
 
 **Sonidos**
 
@@ -194,19 +107,77 @@ Puede que como desarrollador estés interesado en reproducir sonidos dentro de t
 * Hay que tener también en cuenta la gestión de las interrupciones de audio. Por ejemplo, puede producirse una llamada entrante, la aplicación pasar a estado inactivo \(_background_\), etc.
 * Si estamos desarrollando una aplicación musical, para mejorar la experiencia de usuario también podemos usar el control remoto de Apple o el sistema _AirPlay_.
 
-**VoiceOver \(Accesibilidad\)**
+**Accesibilidad**
 
-El sistema de control por voz _VoiceOver_ está diseñado para mejorar la accesibilidad para personas con discapacidades visuales o también para usuarios con interés en el aprendizaje de una lengua extranjera.
+iOS ofrece funcionalidades de accesibilidad para usuarios con discapacidades visuales o auditivas. Con poco esfuerzo y usando los componentes de _UIKit_ podemos adaptar nuestra app para que todos los usuarios puedan disfrutarla por igual. Para esto se recomienda:
 
-**Menú de edición**
+* Proporcionar etiquetas de texto alternativas para imágenes, iconos y elementos del interfaz. Estas etiquetas alternativas no serán visibles en la pantalla, pero permitirán al sistema de voz \(_VoiceOver_\) describir qué hay en la pantalla, ayudando a las personas con problemas visuales.
+* Responder a las opciones de accesibilidad. Debemos permitir a UIKit implementar su interfaz de usuario, para que los elementos se adapten a las preferencias de accesibilidad como texto en negrita o más grande, o eliminar animaciones. Debemos usar la fuente de texto del sistema cuando sea posible.
+* Probar la app en modo accesible, para ver cómo queda.
+* Usar suficiente contraste para que los iconos y el texto sean fácilmente distinguibles.
 
-Existe un [menú contextual de edición](https://developer.apple.com/ios/human-interface-guidelines/ui-controls/edit-menus/) básico que incorpora iOS por defecto. Este contiene las opciones de copiar, cortar y seleccionar. Los desarrolladores podemos modificar este menú si queremos, eliminando o incluyendo nuevas opciones que se ajusten más a nuestra aplicación.
+**Carga**
 
-![Men&#xFA; de edici&#xF3;n](.gitbook/assets/edit_menu.png)
+Si usamos una pantalla estática mientras se está cargando contenido, puede parecer que la app se haya bloqueado. En lugar de esto, hay que dejar claro que la carga está en marcha, por ejemplo usando barras de progreso o animaciones. En cualquier caso debemos mostrar el contenido en cuanto sea posible, en lugar de hacer al usuario esperar que el contenido se cargue antes de ver la pantalla correspondiente.
 
-**Teclado**
+**Preferencias**
 
-El teclado virtual es totalmente modificable según nuestros requerimientos. Por ejemplo, si queremos utilizar un teclado numérico sólo deberemos indicarlo al cargar el teclado dentro del método adecuado. Desde iOS8, se permite añadir teclados personalizados además de los que vienen con el sistema.
+Si la aplicación utiliza preferencias propias, podemos hacer una vista para ellas dentro de nuestra aplicación en el caso de que el usuario necesite cambiarlas con frecuencia, o bien añadir un _settings bundle_ si el cambio no es tan frecuente. Un _settings bundle_ contiene ficheros \(principalmente _.plist_\) que describen la estructura y estilo de presentación de las preferencias, y es muy sencillo de implementar. La app _Settings_ usa esta información para crear una entrada para nuestra aplicación y mostrar las preferencias.
+
+
+
+![Ejemplo de preferencias en Bundle Settings](.gitbook/assets/preferencias.png)
+
+
+
+### Guías de uso de las principales tecnologías disponibles en iOS
+
+La API de iOS nos da acceso a múltiples tecnologías nativas descritas a continuación:
+
+**La multitarea**
+
+Mediante la multitarea nuestro dispositivo puede ejecutar más de dos aplicaciones al mismo tiempo. Otras tareas que no estén mostrándose en pantalla pueden estar almacenadas en memoria, es decir, en _background_, o también mostrándose simultáneamente en la pantalla. Apple recomienda que nuestra aplicación tenga en cuenta dicha característica ya que de esta forma el usuario puede estar realizando otras tareas al mismo tiempo sin necesidad de cerrarla.
+
+![Captura multitarea iOS](.gitbook/assets/multitasking2.png)
+
+La aplicación debe estar preparada para gestionar interrupciones de audio en cualquier momento, pararse y reiniciarse sin ninguna complicación ni lag y de forma "suave", y debe comportarse de forma adecuada cuando se encuentra en _background_. La multitarea es una tecnología que se utiliza muy a menudo en iOS y es por ello que debemos tenerla muy presente a la hora de programar nuestras aplicaciones. La gestión del paso de un estado _activo_ a _inactivo_ debe programarse cuando sea necesario. Por ejemplo, hay que tener en cuenta que nuestro juego puede interrumpirse por una llamada a mitad del lanzamiento de un pájaro.
+
+Para determinar el comportamiento de nuestra aplicación cuando entra en _background_ podemos implementar métodos que se verán en otras asignaturas del máster.
+
+Además de tener que estar preparados para interrupciones, la multitarea implica que nuestra app puede ejecutarse sólo en una zona de la pantalla, por lo que hay que tener en cuenta esto en la fase de diseño**.**
+
+**Notificaciones**
+
+Las notificaciones _push_ permiten a los usuarios estar avisados en cualquier momento, independientemente de si la aplicación está funcionando en ese mismo instante. Esto es muy útil en aplicaciones que hagan uso de un calendario, para avisar de eventos futuros, o aplicaciones con algún tipo de recordatorio. También se utiliza muy a menudo en juegos, sobre todo en juegos sociales.
+
+Hay dos estilos de notificaciones:
+
+* _Alert_: Aparece en la pare superior de la pantalla mientras el dispositivo está en uso y se queda hasta que el usuario la quite manualmente.
+* _Banner_: Aparece en la parte superior de la pantalla unos segundos mientras el dispositivo está en uso, y después desaparece automáticamente.
+
+![Notificaci&#xF3;n push alert](.gitbook/assets/notif_ctr_alert.png) ![Notificaci&#xF3;n push banner](.gitbook/assets/notif_ctr_banner.png)
+
+La implementación de este servicio por parte del desarrollador es algo compleja y requiere de un servidor propio, aunque se pueden contratar servicios externos que realicen esa tarea de forma bastante económica. Al mismo tiempo que se activa la notificación _push_ se muestra un número en la esquina superior derecha del icono de la aplicación. A esto se le llama _badge_ y es muy sencillo de implementar en nuestras aplicaciones.
+
+![Ejemplo badge en app](.gitbook/assets/notif_ctr_badge.png)
+
+**AirPrint**
+
+Mediante _Airprint_ podemos enviar a imprimir cualquier documento desde nuestra app. El SDK de iOS se encarga de gestionar la localización de impresoras y la ejecución de tareas de impresión, mientras que el desarrollador se encarga de especificar los elementos que desea imprimir \(normalmente PDF o imágenes\).
+
+**QuickLook**
+
+Usando _Quicklook_ los usuarios pueden acceder a una vista previa de documentos descargados desde las aplicaciones \(por ejemplo, _pdf_\). Dependiendo del dispositivo en el que se muestra, los documentos se presentarán dentro de una ventana modal o dentro de una vista completa.
+
+#### Extensiones \(app extensions\)
+
+Con las extensiones \(añadidas en iOS8\), los usuarios pueden usar un componente desarrollado por nosotros desde una app externa. Por ejemplo, mientras un usuario ve una web con Safari, podría usar nuestras extensiones para enviar una imagen o un artículo a nuestra red social. O podría también usar desde la aplicación de fotos de Apple una extensión nuestra para editar la imagen.
+
+Las extensiones pueden ser de tipo _widget_, para realizar acciones desde el notification center, _share_ para compartir contenido con terceros, _action_ para ver contenido desde otra aplicación, _photo editing_ para editar imágenes, o _custom keyboard_ para reemplazar el teclado de iOS por uno personalizado, entre otras posibilidades.
+
+![Widget](.gitbook/assets/widget_experience_2x.png) ![Action](.gitbook/assets/share_action_appex_2x.png)
+
+\*\*\*\*
 
 ## Ejercicios
 

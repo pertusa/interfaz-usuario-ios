@@ -6,5 +6,5 @@ Comenzaremos describiendo la guía de estilo que propone _Apple_ e indicando có
 
 También veremos componentes específicos desarrollados inicialmente para iPad \(_UISplitViewController_ y _popovers_\), estrategias para diseñar aplicaciones universales, y las novedades en iOS para llevar a cabo estas tareas. Finalmente veremos cómo trabajar con los gestos del usuario sobre la pantalla.
 
-Los ejercicios y ejemplos de este libro se han desarrollado en **iOS11** con **XCode9** y **Swift4**.
+Los ejercicios y ejemplos de este libro se han desarrollado en **iOS12** con **XCode10** y **Swift4**.
 
